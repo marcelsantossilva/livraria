@@ -53,8 +53,15 @@
         }
         
         p {
-            color: #004080;
+            color: red;
             font-size: 18px;
+            margin-top: 5px;
+            font-family: "Comic Sans MS", cursive;
+        }
+        
+        .code {
+            color: #666666;
+            font-size: 14px;
             margin-top: 5px;
             font-family: "Comic Sans MS", cursive;
         }
@@ -88,16 +95,16 @@
     <script>
         // Exemplo de produtos
         var products = [
-            { id: 1, name: "A Bruxinha Desastrada e a Poção da Rir", price: 10.99, image: "Abruxinha.png" },
-            { id: 2, name: "A Arca Maluca dos Bichos Bagunceiros", price: 19.99, image: "ArcaMaluca.png" },
-            { id: 3, name: "O Circo dos Animais Trapalhões", price: 10.99, image: "CircoAnimais.png" },
-            { id: 4, name: "O Dia em que as Cores Sumiram", price: 19.99, image: "DiaCoresSumiram.png" },
-            { id: 5, name: "A Aventura do Elefante Dançante", price: 10.99, image: "ElefanteDancante.png" },
-            { id: 6, name: "A Festa dos Animais com Chulé", price: 19.99, image: "FestaAnimalChule.png" },
-            { id: 7, name: "A Galinha que Aprendeu a Falar", price: 10.99, image: "GalinhaAprendeuFalar.png" },
-            { id: 8, name: "O Leão que Queria ser Palhaço", price: 19.99, image: "LeaoPalhaco.png" },
-            { id: 9, name: "O Monstro Risonho e o Menino Corajoso", price: 10.99, image: "MonstroRisonho.png" },
-            { id: 10, name: "O Planeta dos Doces Gigantes", price: 19.99, image: "PlanetaDoces.png" },
+            { id: 1, name: "A Bruxinha Desastrada e a Poção da Rir", price: 10.99, image: "Abruxinha.png", code: "ABR001" },
+            { id: 2, name: "A Arca Maluca dos Bichos Bagunceiros", price: 19.99, image: "ArcaMaluca.png", code: "ARC002" },
+            { id: 3, name: "O Circo dos Animais Trapalhões", price: 10.99, image: "CircoAnimais.png", code: "CIR003" },
+            { id: 4, name: "O Dia em que as Cores Sumiram", price: 19.99, image: "DiaCoresSumiram.png", code: "DIA004" },
+            { id: 5, name: "A Aventura do Elefante Dançante", price: 10.99, image: "ElefanteDancante.png", code: "ELE005" },
+            { id: 6, name: "A Festa dos Animais com Chulé", price: 19.99, image: "FestaAnimalChule.png", code: "FES006" },
+            { id: 7, name: "A Galinha que Aprendeu a Falar", price: 10.99, image: "GalinhaAprendeuFalar.png", code: "GAL007" },
+            { id: 8, name: "O Leão que Queria ser Palhaço", price: 19.99, image: "LeaoPalhaco.png", code: "LEA008" },
+            { id: 9, name: "O Monstro Risonho e o Menino Corajoso", price: 10.99, image: "MonstroRisonho.png", code: "MON009" },
+            { id: 10, name: "O Planeta dos Doces Gigantes", price: 19.99, image: "PlanetaDoces.png", code: "PLA010" },
             // Adicione os demais produtos aqui
         ];
         // Preenche a lista de produtos
@@ -113,9 +120,13 @@
             price.innerHTML = "Preço: R$" + integerPart + "<sup>" + decimalPart + "</sup>";
             var image = document.createElement("img");
             image.src = product.image;
+            var code = document.createElement("p");
+            code.className = "code";
+            code.innerHTML = "Código: " + product.code;
             listItem.appendChild(title);
             listItem.appendChild(image);
             listItem.appendChild(price);
+            listItem.appendChild(code);
             productList.appendChild(listItem);
         });
     </script>
