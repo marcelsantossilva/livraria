@@ -63,20 +63,46 @@
             color: #666666;
             text-decoration: none;
         }
+        
+        .error {
+            color: red;
+            margin-top: 5px;
+            font-size: 14px;
+        }
     </style>
 </head>
 <body>
     <div class="container">
         <h1>Tela de Login</h1>
         <img src="MinhaLogo.png" alt="Logo da Minha Empresa" width="200">
-        <form>
-            <label for="username">Login:</label>
-            <input type="text" id="username" name="username">
+        <form action="products.html" onsubmit="return validateForm()">
+            <label for="email">Email:</label>
+            <input type="text" id="email" name="email">
+            <span id="emailError" class="error"></span>
             <label for="password">Senha:</label>
             <input type="password" id="password" name="password">
             <button type="submit">Entrar</button>
         </form>
         <a class="forgot-password" href="forgotPassword.html">Esqueci minha senha</a>
     </div>
+    <script src="script.js"></script>
+    <script>
+        function validateForm() {
+            var email = document.getElementById("email").value;
+            var emailError = document.getElementById("emailError");
+            var emailPattern = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+
+            if (email === "") {
+                emailError.textContent = "Por favor, informe um email.";
+                return false;
+            } else if (!emailPattern.test(email)) {
+                emailError.textContent = "Por favor, informe um email válido.";
+                return false;
+            }
+
+            // Continue com o envio do formulário se o email for válido
+            return true;
+        }
+    </script>
 </body>
 </html>
