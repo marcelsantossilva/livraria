@@ -2,10 +2,65 @@
 <html>
 <head>
     <title>Lista de Produtos</title>
+    <style>
+        body {
+            background-color: #EAF2F8;
+        }
+        
+        h1 {
+            color: #004080;
+            text-align: center;
+            font-size: 24px;
+            margin-top: 20px;
+        }
+        
+        #productList {
+            list-style-type: none;
+            padding: 0;
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        
+        li {
+            text-align: center;
+            margin: 10px;
+            padding: 10px;
+            border: 1px solid #CCCCCC;
+            border-radius: 5px;
+            background-color: #FFFFFF;
+            max-width: 200px;
+        }
+        
+        img {
+            max-width: 150px;
+            height: auto;
+        }
+        
+        #backButton {
+            text-align: center;
+            margin-top: 20px;
+        }
+        
+        #backButton a {
+            background-color: #004080;
+            color: #FFFFFF;
+            padding: 10px 20px;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+        
+        #backButton a:hover {
+            background-color: #002B5E;
+        }
+    </style>
 </head>
 <body>
-    <h1>Lista de Produtos</h1>
+    <h1>Conheça Nossos Livros Divertidos</h1>
     <ul id="productList"></ul>
+    <div id="backButton">
+        <a href="index.html">Voltar</a>
+    </div>
     <script src="script.js"></script>
     <script>
         // Exemplo de produtos
@@ -26,10 +81,15 @@
         var productList = document.getElementById("productList");
         products.forEach(function(product) {
             var listItem = document.createElement("li");
-            listItem.innerHTML = "ID: " + product.id + ", Nome: " + product.name + ", Preço: " + product.price;
+            var title = document.createElement("h3");
+            title.innerHTML = product.name;
+            var price = document.createElement("p");
+            price.innerHTML = "Preço: R$" + product.price.toFixed(2);
             var image = document.createElement("img");
             image.src = product.image;
+            listItem.appendChild(title);
             listItem.appendChild(image);
+            listItem.appendChild(price);
             productList.appendChild(listItem);
         });
     </script>
